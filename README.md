@@ -32,4 +32,3 @@
 </ul>
 
 <h2>UI/UX</h2>
-![Get-Started]()
