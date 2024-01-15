@@ -12,8 +12,11 @@
   <li>Numbers</li>
   <li>Colors</li>
   <li>Shapes</li>
-  <li>Practice</li>
+  <li>Tracing</li>
   <li>Animals</li>
   <li>Birds</li>
 </ul>
+
+<h2>Software Model</h2>
+<p>We used the incremental process model for our project development. In incremental process model, we develop our system in increments or series of versions, with each version adding new functionality to the previous version </p>
 
