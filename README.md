@@ -20,3 +20,5 @@
 <h2>Software Model</h2>
 <p>We used the incremental process model for our project development. In incremental process model, we develop our system in increments or series of versions, with each version adding new functionality to the previous version </p>
 
+<h2>Tools And Technologies</h2>
+![image](https://github.com/hmzi67/Tinny-Genius/assets/137566252/6197fdca-e58d-40c2-bacf-c28dd3651c06)
