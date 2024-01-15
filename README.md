@@ -1,5 +1,22 @@
 <h1>Tinny Genius</h1>
 <p>Learning app for toddlers with fun and engaging content</p>
 
-<h3>Screenshots</h3>
-![WhatsApp Image 2024-01-15 at 4 01 26 PM](https://github.com/hmzi67/Tinny-Genius/assets/137566252/8da5b786-b9eb-4347-abaf-9616aab2dedc)
+<h2>Introduction</h2>
+<ul>
+  <li>Tinny Genius is a fun and engaging educational app for toddlers.</li>
+  <li>Interactive activities teaching letters, numbers, shapes and many more.</li>
+  <li>"Upon successfully completing the letter tracing, the child is instantly awarded 100 points!".</li>
+</ul>
+
+<h2>Modules</h2>
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
