@@ -21,4 +21,17 @@
 <p>We used the incremental process model for our project development. In incremental process model, we develop our system in increments or series of versions, with each version adding new functionality to the previous version </p>
 
 <h2>Tools And Technologies</h2>
-![image](https://github.com/hmzi67/Tinny-Genius/assets/137566252/6197fdca-e58d-40c2-bacf-c28dd3651c06)
+<ul>
+  <li>Android 8.1</li>
+  <li>Windows</li>
+  <li>Android Studio</li>
+  <li>Java (For Core Development)</li>
+  <li>XML (For UI Layouts)</li>
+  <li>Luancy (For UX/UI Designs)</li>
+  <li>Firebase NoSQL Database</li>
+</ul>
+
+<h2>UI/UX</h2>
+<img src={"https://github.com/hmzi67/Tinny-Genius/assets/137566252/9a4d7082-11ee-4ed1-8b93-28b0c981eab4
+"}>
+
