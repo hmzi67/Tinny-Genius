@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/home_bg"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragments.HomeFragment">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:elevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/home"
+            android:textColor="@color/white"
+            android:textSize="21sp"
+            android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/speakDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_volume"
+            android:layout_gravity="end"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="@color/white" />
+    </androidx.appcompat.widget.Toolbar>
+
+<ScrollView
+    android:layout_marginTop="65dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/profileLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="start"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/edit_user_pic"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="10dp"
+                android:contentDescription="@string/user_profile_str"
+                android:src="@drawable/ic_profile"
+                />
+
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/sfbold"
+                android:text="Hello, "
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <android.widget.Button
+                android:id="@+id/alphabets"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/home_rect"
+                android:contentDescription="@string/alphebets"
+                android:drawableTop="@drawable/alphebets"
+                android:elevation="8dp"
+                android:fontFamily="@font/sfbold"
+                android:padding="8dp"
+                android:text="@string/alphebets"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <android.widget.Button
+                android:id="@+id/numbers"
+
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/home_rect"
+                android:contentDescription="@string/numbers"
+                android:drawableTop="@drawable/numbers_2"
+                android:elevation="8dp"
+                android:fontFamily="@font/sfbold"
+                android:padding="8dp"
+                android:text="@string/numbers"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:padding="8dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.widget.Button
+                android:layout_margin="8dp"
+                android:id="@+id/colors"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home_rect"
+                android:contentDescription="@string/colors"
+                android:textColor="@color/black"
+                android:drawableTop="@drawable/colors"
+                android:textSize="18sp"
+                android:padding="8dp"
+                android:textAllCaps="false"
+                android:elevation="8dp"
+                android:fontFamily="@font/sfbold"
+                android:text="@string/colors"
+                android:textStyle="bold" />
+
+            <android.widget.Button
+                android:layout_margin="8dp"
+
+                android:id="@+id/shapes"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home_rect"
+                android:contentDescription="@string/shapes"
+                android:text="@string/shapes"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="@font/sfbold"
+                android:drawableTop="@drawable/shapes"
+                android:textSize="18sp"
+                android:padding="8dp"
+                android:textAllCaps="false"
+                android:elevation="8dp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <android.widget.Button
+                android:id="@+id/practice"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/home_rect"
+                android:contentDescription="@string/practices"
+                android:drawableTop="@drawable/practice"
+                android:elevation="8dp"
+                android:fontFamily="@font/sfbold"
+                android:padding="8dp"
+                android:text="@string/practice"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <android.widget.Button
+                android:id="@+id/animals"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/home_rect"
+                android:contentDescription="@string/animals"
+                android:drawableTop="@drawable/animals"
+                android:elevation="8dp"
+                android:fontFamily="@font/sfbold"
+                android:padding="8dp"
+                android:text="@string/animals"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <android.widget.Button
+                android:id="@+id/birds"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/home_rect"
+                android:contentDescription="@string/birds"
+                android:drawableTop="@drawable/birds"
+                android:elevation="8dp"
+                android:fontFamily="@font/sfbold"
+                android:padding="8dp"
+                android:text="@string/birds"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+
+</FrameLayout>

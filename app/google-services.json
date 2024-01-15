@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "343282321208",
+    "project_id": "tinny-genius-45d49",
+    "storage_bucket": "tinny-genius-45d49.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:343282321208:android:653a7824d491575cef23cd",
+        "android_client_info": {
+          "package_name": "com.github.hmzi.tinnygenius"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCelTf5R5aAwvnRLnMee8QBn1dSBlnu8nM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

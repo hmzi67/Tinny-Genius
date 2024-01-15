@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_img"
+    tools:context=".Quiz">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar4"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/bg_toolbar"
+        android:elevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/goBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_back"
+            android:backgroundTint="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/sfbold"
+            android:text="Practice"
+            android:textColor="@color/txt_color"
+            android:textSize="21sp" />
+
+
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sfregular"
+            android:layout_gravity="end"
+            android:layout_margin="8dp"
+            android:padding="8dp"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+    <nl.dionsegijn.konfetti.xml.KonfettiView
+        android:id="@+id/konfettiView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/alert_box"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:padding="10dp"
+        android:background="@drawable/bg_progress_status"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/letter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar4">
+        <TextView
+            android:text="@string/do_you_want_to_continue"
+            android:fontFamily="@font/sfregular"
+            android:textSize="18sp"
+            android:layout_marginEnd="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/continue_practice"
+            android:background="@drawable/btn_primary"
+            android:textSize="16sp"
+            android:fontFamily="@font/sfregular"
+            android:text="@string/continue_btn"
+            android:textAllCaps="false"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+    <com.danny_jiang.tracinglibrary.view.TracingLetterView
+        android:id="@+id/letter"
+        android:layout_width="278dp"
+        android:layout_height="341dp"
+        android:layout_marginTop="40dp"
+        app:anchorDrawable="@drawable/ic_draw"
+        app:instructionMode="false"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintHeight_percent="0.8"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar4"
+        app:layout_constraintVertical_bias="0.387"
+        app:pointColor="@color/black"
+        app:strokeColor="#FF4800" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/magic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/btn_primary"
+            android:elevation="10dp"
+            android:padding="15dp"
+            app:tint="@color/white"
+            android:src="@drawable/ic_magic"
+            android:contentDescription="Magic" />
+
+        <ImageView
+            android:id="@+id/previousBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/btn_primary"
+            android:elevation="10dp"
+            android:padding="15dp"
+            android:src="@drawable/previous"
+            app:tint="@color/white"
+            android:contentDescription="Back" />
+
+        <ImageView
+            android:id="@+id/resetBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/btn_primary"
+            android:elevation="10dp"
+            android:padding="15dp"
+            android:src="@drawable/reset"
+            app:tint="@color/white"
+            android:contentDescription="Reset" />
+
+        <ImageView
+            android:id="@+id/nextBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_primary"
+            android:elevation="10dp"
+            android:padding="15dp"
+            android:src="@drawable/next"
+            app:tint="@color/white"
+            android:contentDescription="Next" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/shapes_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:layout_margin="8dp"
+    app:cardBackgroundColor="@color/white"
+    android:elevation="8dp"
+    app:cardCornerRadius="8dp">
+
+    <!-- Replace with ImageView -->
+    <ImageView
+        android:id="@+id/shapes_img"
+        android:src="@drawable/star"
+        android:layout_margin="8dp"
+        android:layout_gravity="center"
+        android:cropToPadding="true"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:contentDescription="@string/shapes" />
+
+</androidx.cardview.widget.CardView>

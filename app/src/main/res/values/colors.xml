@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="skyblue">#00D9FF</color>
+
+    <color name="primary_color">#0080FF</color>
+
+    <color name="bg_color">#EEEEEE</color>
+    <color name="txt_color">#FFFFFF</color>
+    <color name="btn_color">#ffffff</color>
+    <color name="tab_indicator">#838080</color>
+    <color name="trans">#00000000</color>
+
+    <color name="border_color">#f5f5f5</color>
+    <color name="spinner_color">#f5f5f5</color>
+    <color name="navBar">#B3B4B4</color>
+
+    <!--    Gradient Color    -->
+    <color name="first">#4ED7FF</color>
+    <color name="second">#4EA6FF</color>
+
+    <!--    Transparent Color  -->
+    <!--    <color name="transparent">#0000000</color>-->
+
+    <!--    Toolbar Icon color   -->
+    <color name="toolbar_icon_colors">#000000</color>
+
+    <!--    Input Colors    -->
+    <color name="input_txt_color">#191818</color>
+    <color name="bg_input">#E6EAEB</color>
+    <color name="last_message_color">#232323</color>
+
+    <color name="green">#4CAF50</color>
+
+
+
+
+</resources>
