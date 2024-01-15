@@ -32,6 +32,3 @@
 </ul>
 
 <h2>UI/UX</h2>
-<img src={"https://github.com/hmzi67/Tinny-Genius/assets/137566252/9a4d7082-11ee-4ed1-8b93-28b0c981eab4
-"}>
-
