@@ -32,3 +32,4 @@
 </ul>
 
 <h2>UI/UX</h2>
+![WhatsApp Image 2024-01-15 at 4 01 26 PM](https://github.com/hmzi67/Tinny-Genius/assets/137566252/cde459ea-cf90-44e5-966a-992424074bb9)
