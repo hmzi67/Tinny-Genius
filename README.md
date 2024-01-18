@@ -41,6 +41,5 @@
 <p style="center"><img width="300px" height="500px" src="https://github.com/hmzi67/Tinny-Genius/assets/137566252/d8138683-d431-4217-8639-b37bafe37458" /></p>
 <p style="center"><img width="300px" height="500px" src="https://github.com/hmzi67/Tinny-Genius/assets/137566252/1a210bc1-81fe-41de-a352-94c58fed3da1" /></p>
 <p style="center"><img width="300px" height="500px" src="https://github.com/hmzi67/Tinny-Genius/assets/137566252/21a8dc84-5526-4205-a126-94060e694e92" /></p>
-<p style="center"><img width="300px" height="500px" src="https://github.com/hmzi67/Tinny-Genius/assets/137566252/048cfdff-93e9-4cd0-b64d-0ab2be498184" /></p>
 <p style="center"><img width="300px" height="500px" src="https://github.com/hmzi67/Tinny-Genius/assets/137566252/cb23c43c-99b1-4d72-a0b6-9ab0970523ea" /></p>
 
