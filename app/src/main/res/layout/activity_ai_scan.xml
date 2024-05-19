@@ -5,13 +5,15 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_img"
+    android:background="@color/skyblue"
     tools:context=".AiScan">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar6"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:elevation="5dp" >
+        android:elevation="5dp">
+
         <ImageView
             android:id="@+id/back"
             android:layout_width="wrap_content"
@@ -23,68 +25,80 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="AI Scan Screen"
-            android:textSize="21sp"
+            android:layout_gravity="center"
             android:fontFamily="@font/sfbold"
+            android:text="AI Scan Screen"
             android:textColor="@color/txt_color"
-            android:layout_gravity="center"/>
+            android:textSize="21sp" />
 
     </androidx.appcompat.widget.Toolbar>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar6"
+        android:layout_marginTop="0dp">
 
-        <RelativeLayout
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
             <ImageView
                 android:id="@+id/userSelectedImage"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
-                android:layout_marginHorizontal="40dp"
-                android:contentDescription="Selected Photo"
+                android:cropToPadding="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="100dp"
-                android:src="@drawable/rectangle" />
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_input"
+                android:contentDescription="Selected Photo" />
 
-            <LinearLayout
+
+            <TextView
+                android:visibility="invisible"
+                android:id="@+id/generatedText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="650dp"
                 android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_progress_status"
+                android:text="Hello I'm Hamza waheed Abbaasi "
+                android:textAlignment="center"
+                android:textSize="22sp" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <androidx.appcompat.widget.AppCompatButton
+                <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/imgSelectBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/ic_image"
                     android:elevation="8dp"
-                    android:text="Img"
-                    android:textColor="@color/white"
                     android:textSize="18sp" />
 
-                <androidx.appcompat.widget.AppCompatButton
+                <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/cameraBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:elevation="8dp"
-                    android:text="Camera"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_marginHorizontal="40dp"
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
+                    android:background="@drawable/ic_camera"
+                    android:elevation="8dp" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/nextBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:elevation="8dp"
-                    android:text="next"
-                    android:textColor="@color/white"
-                    android:textSize="18sp" />
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/ic_next"
+                    android:elevation="8dp" />
             </LinearLayout>
-        </RelativeLayout>
+        </LinearLayout>
     </ScrollView>
 </RelativeLayout>
