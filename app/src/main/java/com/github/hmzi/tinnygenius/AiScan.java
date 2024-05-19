@@ -20,6 +20,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.github.hmzi.tinnygenius.Classes.ProgressStatus;
 import com.github.hmzi.tinnygenius.Classes.SpeakClass;
 import com.github.hmzi.tinnygenius.databinding.ActivityAiScanBinding;
 import com.github.hmzi.tinnygenius.databinding.ActivityAnimalBinding;
@@ -49,6 +50,7 @@ public class AiScan extends AppCompatActivity {
 
     // request code
     private final int PICK_IMAGE_REQUEST = 22;
+    ProgressStatus progressStatus;
 
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final int CAMERA_PERMISSION_REQUEST_CODE = 1001;
@@ -59,7 +61,7 @@ public class AiScan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityAiScanBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        progressStatus = new ProgressStatus(this);
         init();
     }
 
@@ -72,6 +74,9 @@ public class AiScan extends AppCompatActivity {
         binding.nextBtn.setOnClickListener(view -> {
             if (filePath != null) {
                 try {
+                    progressStatus.show();
+                    progressStatus.setTitle("Please wait ...");
+                    progressStatus.setCanceledOnTouchOutside(false);
                     sendGeminaiPhoto();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
@@ -119,12 +124,17 @@ public class AiScan extends AppCompatActivity {
         Futures.addCallback(response, new FutureCallback<GenerateContentResponse>() {
             @Override
             public void onSuccess(GenerateContentResponse result) {
+                progressStatus.dismiss();
                 String resultText = result.getText();
+                binding.generatedText.setVisibility(View.VISIBLE);
+                binding.generatedText.setText(resultText);
+                Toast.makeText(AiScan.this, "Generated Successfully", Toast.LENGTH_SHORT).show();
                 Log.d("RES", "onSuccess: " + resultText);
             }
 
             @Override
             public void onFailure(Throwable t) {
+                Toast.makeText(AiScan.this, "Something went wrong", Toast.LENGTH_SHORT).show();
                 Log.d("RES", "onFail: " + t.getMessage());
             }
         }, executor);
