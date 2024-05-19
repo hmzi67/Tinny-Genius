@@ -156,6 +156,7 @@ public class AiScan extends AppCompatActivity {
         }
 
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            filePath = data.getData();
             // Image captured successfully, you can retrieve the image from the Intent data
             Bitmap imageBitmap = (Bitmap) data.getExtras().get("data");
             setImage(imageBitmap);
