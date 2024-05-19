@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.hmzi.tinnygenius.AiScan;
 import com.github.hmzi.tinnygenius.AlphabetsDetailsActivity;
 import com.github.hmzi.tinnygenius.AnimalActivity;
 import com.github.hmzi.tinnygenius.BirdsActivity;
@@ -134,6 +135,12 @@ public class HomeFragment extends Fragment {
 
         //Speak details
         binding.speakDetails.setOnClickListener(view -> {
+            speak.speakOut("Welcome to the home screen");
+        });
+
+        //Ai Scan
+        binding.aiScan.setOnClickListener(view -> {
+            getContext().startActivity(new Intent(getContext(), AiScan.class));
             speak.speakOut("Welcome to the home screen");
         });
     }
