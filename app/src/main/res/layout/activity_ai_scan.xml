@@ -58,7 +58,7 @@
                 android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/n"
+                    android:id="@+id/imgSelectBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:elevation="8dp"
@@ -67,7 +67,7 @@
                     android:textSize="18sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/c"
+                    android:id="@+id/cameraBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:elevation="8dp"
@@ -77,7 +77,7 @@
                     android:textSize="18sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/e"
+                    android:id="@+id/nextBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:elevation="8dp"
