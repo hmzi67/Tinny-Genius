@@ -141,7 +141,7 @@ public class HomeFragment extends Fragment {
         //Ai Scan
         binding.aiScan.setOnClickListener(view -> {
             getContext().startActivity(new Intent(getContext(), AiScan.class));
-            speak.speakOut("Welcome to the home screen");
+            speak.speakOut("Welcome to the AI SCAN screen");
         });
     }
 }
