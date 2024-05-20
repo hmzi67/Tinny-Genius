@@ -52,6 +52,7 @@ public class AiScan extends AppCompatActivity {
     // request code
     private final int PICK_IMAGE_REQUEST = 22;
     ProgressStatus progressStatus;
+    SpeakClass speakClass;
 
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final int CAMERA_PERMISSION_REQUEST_CODE = 1001;
@@ -63,6 +64,7 @@ public class AiScan extends AppCompatActivity {
         binding = ActivityAiScanBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         progressStatus = new ProgressStatus(this);
+        speakClass = new SpeakClass(this);
         init();
     }
 
@@ -100,16 +102,6 @@ public class AiScan extends AppCompatActivity {
         });
     }
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-//            // Image captured successfully, you can retrieve the image from the Intent data
-//            Bitmap imageBitmap = (Bitmap) data.getExtras().get("data");
-//            // Now you can do something with the image
-//        }
-//    }
-
     private void sendGeminaiPhoto() throws IOException {
         String apiKey = getResources().getString(R.string.api_key);
         GenerativeModel gm = new GenerativeModel("gemini-pro-vision", apiKey);
@@ -128,7 +120,9 @@ public class AiScan extends AppCompatActivity {
                 runOnUiThread(() -> progressStatus.dismiss());
                 String resultText = result.getText();
                 runOnUiThread(() -> binding.generatedText.setVisibility(View.VISIBLE));
+                runOnUiThread(() -> speakClass.speakOut(resultText));
                 runOnUiThread(() -> binding.generatedText.setText(resultText));
+                runOnUiThread(() -> speakClass.shutDown());
 //                binding.generatedText.setVisibility(View.VISIBLE);
 //                binding.generatedText.setText(resultText);
                 runOnUiThread(() -> Toast.makeText(AiScan.this, "Generated Successfully", Toast.LENGTH_SHORT).show());
