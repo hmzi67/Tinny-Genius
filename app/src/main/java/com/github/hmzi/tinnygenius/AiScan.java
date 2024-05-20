@@ -48,11 +48,13 @@ public class AiScan extends AppCompatActivity {
 
     // Uri indicates, where the image will be picked from
     private Uri filePath;
+    private  Bitmap bitmap;
 
     // request code
     private final int PICK_IMAGE_REQUEST = 22;
     ProgressStatus progressStatus;
-    SpeakClass speakClass;
+//    private SpeakClass speakClass;
+    String resultText;
 
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final int CAMERA_PERMISSION_REQUEST_CODE = 1001;
@@ -64,7 +66,8 @@ public class AiScan extends AppCompatActivity {
         binding = ActivityAiScanBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         progressStatus = new ProgressStatus(this);
-        speakClass = new SpeakClass(this);
+//        speakClass = new SpeakClass(this);
+//        speakClass.speakOut("hi from the act");
         init();
     }
 
@@ -75,7 +78,7 @@ public class AiScan extends AppCompatActivity {
         // on image select
         binding.imgSelectBtn.setOnClickListener(view -> SelectImage());
         binding.nextBtn.setOnClickListener(view -> {
-            if (filePath != null) {
+            if (bitmap != null) {
                 try {
                     progressStatus.show();
                     progressStatus.setTitle("Please wait ...");
@@ -108,7 +111,8 @@ public class AiScan extends AppCompatActivity {
         GenerativeModelFutures model = GenerativeModelFutures.from(gm);
         Content content = new Content.Builder()
                 .addText("What's in this picture?")
-                .addImage(MediaStore.Images.Media.getBitmap(getContentResolver(), filePath))
+                .addImage(bitmap)
+                //.addImage(MediaStore.Images.Media.getBitmap(getContentResolver(), filePath))
                 .build();
 
         Executor executor =  Executors.newFixedThreadPool(10);
@@ -118,11 +122,10 @@ public class AiScan extends AppCompatActivity {
             @Override
             public void onSuccess(GenerateContentResponse result) {
                 runOnUiThread(() -> progressStatus.dismiss());
-                String resultText = result.getText();
+                resultText = result.getText();
                 runOnUiThread(() -> binding.generatedText.setVisibility(View.VISIBLE));
-                runOnUiThread(() -> speakClass.speakOut(resultText));
                 runOnUiThread(() -> binding.generatedText.setText(resultText));
-                runOnUiThread(() -> speakClass.shutDown());
+//                runOnUiThread(() -> speakClass.shutDown());
 //                binding.generatedText.setVisibility(View.VISIBLE);
 //                binding.generatedText.setText(resultText);
                 runOnUiThread(() -> Toast.makeText(AiScan.this, "Generated Successfully", Toast.LENGTH_SHORT).show());
@@ -135,6 +138,8 @@ public class AiScan extends AppCompatActivity {
                 Log.d("RES", "onFail: " + t.getMessage());
             }
         }, executor);
+
+//        speakClass.speakOut(resultText);
     }
     // Select Image method
     private void SelectImage() {
@@ -154,7 +159,7 @@ public class AiScan extends AppCompatActivity {
             filePath = data.getData();
             try {
                 // Setting image on image view using Bitmap
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
                 setImage(bitmap);
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -164,8 +169,9 @@ public class AiScan extends AppCompatActivity {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             filePath = data.getData();
             // Image captured successfully, you can retrieve the image from the Intent data
-            Bitmap imageBitmap = (Bitmap) data.getExtras().get("data");
-            setImage(imageBitmap);
+            bitmap = (Bitmap) data.getExtras().get("data");
+            setImage(bitmap);
+//            init();
         }
     }
 
