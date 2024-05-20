@@ -3,27 +3,20 @@ package com.github.hmzi.tinnygenius;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.github.hmzi.tinnygenius.Classes.ProgressStatus;
 import com.github.hmzi.tinnygenius.Classes.SpeakClass;
 import com.github.hmzi.tinnygenius.databinding.ActivityAiScanBinding;
-import com.github.hmzi.tinnygenius.databinding.ActivityAnimalBinding;
 import com.google.ai.client.generativeai.GenerativeModel;
 import com.google.ai.client.generativeai.java.GenerativeModelFutures;
 import com.google.ai.client.generativeai.type.Content;
@@ -31,31 +24,18 @@ import com.google.ai.client.generativeai.type.GenerateContentResponse;
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
-import com.google.common.util.concurrent.MoreExecutors;
-
-import org.checkerframework.checker.nullness.qual.NonNull;
-import org.checkerframework.checker.nullness.qual.Nullable;
-
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class AiScan extends AppCompatActivity {
-
     private ActivityAiScanBinding binding;
-
-    // Uri indicates, where the image will be picked from
     private Uri filePath;
     private  Bitmap bitmap;
-
-    // request code
     private final int PICK_IMAGE_REQUEST = 22;
-    ProgressStatus progressStatus;
-//    private SpeakClass speakClass;
-    String resultText;
-
+    private ProgressStatus progressStatus;
+    private SpeakClass speakClass;
+    private String resultText;
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final int CAMERA_PERMISSION_REQUEST_CODE = 1001;
 
@@ -66,8 +46,8 @@ public class AiScan extends AppCompatActivity {
         binding = ActivityAiScanBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         progressStatus = new ProgressStatus(this);
-//        speakClass = new SpeakClass(this);
-//        speakClass.speakOut("hi from the act");
+        speakClass = new SpeakClass(this);
+
         init();
     }
 
@@ -89,6 +69,8 @@ public class AiScan extends AppCompatActivity {
                 }
             }
         });
+
+        // camera btn click
         binding.cameraBtn.setOnClickListener(view -> {
             // Check for camera permission
             if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)
@@ -103,6 +85,11 @@ public class AiScan extends AppCompatActivity {
                 startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
             }
         });
+
+        // on speak button click
+        binding.speakText.setOnClickListener(view -> {
+            speakClass.speakOut(resultText);
+        });
     }
 
     private void sendGeminaiPhoto() throws IOException {
@@ -112,7 +99,6 @@ public class AiScan extends AppCompatActivity {
         Content content = new Content.Builder()
                 .addText("What's in this picture?")
                 .addImage(bitmap)
-                //.addImage(MediaStore.Images.Media.getBitmap(getContentResolver(), filePath))
                 .build();
 
         Executor executor =  Executors.newFixedThreadPool(10);
@@ -123,27 +109,23 @@ public class AiScan extends AppCompatActivity {
             public void onSuccess(GenerateContentResponse result) {
                 runOnUiThread(() -> progressStatus.dismiss());
                 resultText = result.getText();
-                runOnUiThread(() -> binding.generatedText.setVisibility(View.VISIBLE));
+                runOnUiThread(() -> binding.generatedTextBox.setVisibility(View.VISIBLE));
                 runOnUiThread(() -> binding.generatedText.setText(resultText));
-//                runOnUiThread(() -> speakClass.shutDown());
-//                binding.generatedText.setVisibility(View.VISIBLE);
-//                binding.generatedText.setText(resultText);
                 runOnUiThread(() -> Toast.makeText(AiScan.this, "Generated Successfully", Toast.LENGTH_SHORT).show());
                 Log.d("RES", "onSuccess: " + resultText);
             }
 
             @Override
             public void onFailure(Throwable t) {
+                runOnUiThread(() -> progressStatus.dismiss());
                 runOnUiThread(() -> Toast.makeText(AiScan.this, "Something went wrong", Toast.LENGTH_SHORT).show());
                 Log.d("RES", "onFail: " + t.getMessage());
             }
         }, executor);
-
-//        speakClass.speakOut(resultText);
     }
+
     // Select Image method
     private void SelectImage() {
-        // Defining Implicit Intent to mobile gallery
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -155,10 +137,8 @@ public class AiScan extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            // Get the Uri of data
             filePath = data.getData();
             try {
-                // Setting image on image view using Bitmap
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
                 setImage(bitmap);
             } catch (IOException e) {
@@ -167,11 +147,9 @@ public class AiScan extends AppCompatActivity {
         }
 
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            filePath = data.getData();
-            // Image captured successfully, you can retrieve the image from the Intent data
+            // filePath = data.getData();
             bitmap = (Bitmap) data.getExtras().get("data");
             setImage(bitmap);
-//            init();
         }
     }
 

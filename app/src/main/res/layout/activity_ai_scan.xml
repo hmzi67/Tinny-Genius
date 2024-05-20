@@ -55,21 +55,40 @@
                 android:contentDescription="Selected Photo" />
 
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/generatedTextBox"
                 android:visibility="invisible"
-                android:paddingHorizontal="10dp"
-                android:paddingVertical="5dp"
-                android:id="@+id/generatedText"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="20.dp"
+                android:layout_marginVertical="10.dp"
                 android:background="@drawable/bg_progress_status"
-                android:text="Hello I'm Hamza waheed Abbaasi "
-                android:textAlignment="center"
-                android:fontFamily="@font/sfregular"
-                android:textColor="@color/input_txt_color"
-                android:textSize="20sp" />
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/generatedText"
+                    android:padding="5.dp"
+                    android:layout_width="300.dp"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textAlignment="textStart"
+                    android:fontFamily="@font/sfregular"
+                    android:textColor="@color/input_txt_color"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/speakText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_volume"
+                    android:contentDescription="Null"
+                    android:padding="8.dp"
+                    android:layout_marginStart="20.dp"
+                    />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linearLayout2"
