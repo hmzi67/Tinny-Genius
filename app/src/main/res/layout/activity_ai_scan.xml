@@ -46,26 +46,30 @@
             <ImageView
                 android:id="@+id/userSelectedImage"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="wrap_content"
                 android:cropToPadding="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/bg_input"
+                android:background="@drawable/aiscan_shape"
                 android:contentDescription="Selected Photo" />
 
 
             <TextView
                 android:visibility="invisible"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
                 android:id="@+id/generatedText"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/bg_progress_status"
                 android:text="Hello I'm Hamza waheed Abbaasi "
                 android:textAlignment="center"
-                android:textSize="22sp" />
+                android:fontFamily="@font/sfregular"
+                android:textColor="@color/input_txt_color"
+                android:textSize="20sp" />
 
             <LinearLayout
                 android:id="@+id/linearLayout2"

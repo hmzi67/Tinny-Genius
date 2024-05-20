@@ -205,7 +205,7 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="180dp"
             android:gravity="center"
             android:orientation="horizontal"
             android:padding="8dp">
@@ -213,7 +213,7 @@
             <android.widget.Button
                 android:id="@+id/birds"
                 android:layout_width="130dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="8dp"
                 android:background="@drawable/home_rect"
                 android:contentDescription="@string/birds"
@@ -227,10 +227,10 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <Button
+            <android.widget.Button
                 android:id="@+id/aiScan"
                 android:layout_width="130dp"
-                android:layout_height="130dp"
+                android:layout_height="match_parent"
                 android:layout_margin="8dp"
                 android:background="@drawable/home_rect"
                 android:contentDescription="@string/aiScan"
