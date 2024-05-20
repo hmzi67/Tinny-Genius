@@ -31,6 +31,7 @@ import com.google.ai.client.generativeai.type.GenerateContentResponse;
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
+import com.google.common.util.concurrent.MoreExecutors;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -124,22 +125,23 @@ public class AiScan extends AppCompatActivity {
         Futures.addCallback(response, new FutureCallback<GenerateContentResponse>() {
             @Override
             public void onSuccess(GenerateContentResponse result) {
-                progressStatus.dismiss();
+                runOnUiThread(() -> progressStatus.dismiss());
                 String resultText = result.getText();
-                binding.generatedText.setVisibility(View.VISIBLE);
-                binding.generatedText.setText(resultText);
-                Toast.makeText(AiScan.this, "Generated Successfully", Toast.LENGTH_SHORT).show();
+                runOnUiThread(() -> binding.generatedText.setVisibility(View.VISIBLE));
+                runOnUiThread(() -> binding.generatedText.setText(resultText));
+//                binding.generatedText.setVisibility(View.VISIBLE);
+//                binding.generatedText.setText(resultText);
+                runOnUiThread(() -> Toast.makeText(AiScan.this, "Generated Successfully", Toast.LENGTH_SHORT).show());
                 Log.d("RES", "onSuccess: " + resultText);
             }
 
             @Override
             public void onFailure(Throwable t) {
-                Toast.makeText(AiScan.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                runOnUiThread(() -> Toast.makeText(AiScan.this, "Something went wrong", Toast.LENGTH_SHORT).show());
                 Log.d("RES", "onFail: " + t.getMessage());
             }
         }, executor);
     }
-
     // Select Image method
     private void SelectImage() {
         // Defining Implicit Intent to mobile gallery
