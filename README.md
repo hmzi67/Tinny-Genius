@@ -15,6 +15,7 @@
   <li>Tracing</li>
   <li>Animals</li>
   <li>Birds</li>
+  <li>AI Scan (Gemini-Vision-Pro)</li>
 </ul>
 
 ## Software Model
